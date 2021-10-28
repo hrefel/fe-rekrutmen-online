@@ -1,0 +1,37 @@
+<nb-card accent="info">
+    <nb-card-body>
+        <div class="row">
+            <div class="col-9">
+                <span class="caption-2">Nama Soal</span>
+                <input type="text" nbInput fullWidth placeholder="Nama Soal" [(ngModel)]="namaSoal">
+            </div>
+            <div class="col-2">
+                <span class="caption-2">Waktu Pengerjaan</span>
+                <input type="number" nbInput fullWidth placeholder="Waktu Pengerjaan" [(ngModel)]="waktuPengerjaan">
+            </div>
+            <div class="col-1">
+                <span class="caption-2">&nbsp;</span>
+                <button nbButton fullWidth status="primary" (click)="tambahData()">Tambah <nb-icon icon="plus">
+                    </nb-icon></button>
+            </div>
+        </div>
+    </nb-card-body>
+</nb-card>
+<ngx-datatable class="material" [rows]="rows" columnMode="force" [headerHeight]="50" [scrollbarH]="true"
+    [footerHeight]="50" rowHeight="auto" [reorderable]="true" [limit]="10" [loadingIndicator]="loadingIndicator">
+
+    <ngx-datatable-column name="Nama Soal" prop="namaSoal"></ngx-datatable-column>
+    <ngx-datatable-column name="Author" prop="createdBy"></ngx-datatable-column>
+    <ngx-datatable-column prop="waktuPengerjaan"></ngx-datatable-column>
+    <ngx-datatable-column prop="status"></ngx-datatable-column>
+    <ngx-datatable-column name="#" prop="isiNodin" [width]="100">
+        <ng-template let-value="value" let-row="row" ngx-datatable-cell-template>
+            <div class="grid-action">
+                <button nbButton shape="round" size="small" status="danger" (click)="hapusData(row)">Hapus</button>
+                <button nbButton shape="round" size="small" status="info" (click)="inputPertanyaan(row)">Tambah Pertanyaan</button>
+            </div>
+            
+
+        </ng-template>
+    </ngx-datatable-column>
+</ngx-datatable>

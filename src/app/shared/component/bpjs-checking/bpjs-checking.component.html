@@ -1,0 +1,63 @@
+<nb-card accent="info" status="success">
+    <nb-card-header>Cek Status BPJS anda disini</nb-card-header>
+    <nb-card-body>
+        <div class="row">
+            <div class="col-12">
+                <label class="caption-2 text-hint">No. BPJS</label>
+                <!-- <input nbInput fullWidth placeholder="No. BPJS" [(ngModel)]="noBPJS" (blur)="getDataBPJSPasien()"> -->
+                <nb-form-field>
+                    <input nbInput fullWidth placeholder="No. BPJS" [(ngModel)]="noBPJS" (blur)="getDataBPJSPasien()">
+                    <button nbSuffix nbButton ghost (click)="getDataBPJSPasien()">
+                        <nb-icon icon="search-outline" pack="eva"></nb-icon>
+                    </button>
+                </nb-form-field>
+            </div>
+
+            <!-- <div class="col-3">
+                <button nbButton fullWidth style="margin-top: 24px;" hero size="small" status="success" (click)="getDataBPJSPasien()">Cek</button>
+            </div> -->
+        </div>
+        <div class="row justify-content-md-center">
+
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12">
+                <label class="caption-2 text-hint">Nama</label>
+                <input nbInput fullWidth placeholder="Nama" [(ngModel)]="namaBpjs" disabled>
+            </div>
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12">
+                <label class="caption-2 text-hint">Jenis Kelamin</label>
+                <input nbInput fullWidth placeholder="Jenis Kelamin" [(ngModel)]="jenisKelaminBpjs" disabled>
+            </div>
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12">
+                <label class="caption-2 text-hint">N. I. K</label>
+                <input nbInput fullWidth placeholder="N. I. K" [(ngModel)]="nikBpjs" disabled>
+            </div>
+
+            <!-- <div class="col-2">
+                <label class="caption-2 text-hint">No. Kartu</label>
+                <input nbInput fullWidth placeholder="Jam Praktik" [(ngModel)]="noKartuBpjs" disabled>
+            </div> -->
+
+
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12">
+                <label class="caption-2 text-hint">Umur</label>
+                <input nbInput fullWidth placeholder="Umur" [(ngModel)]="umurBpjs" disabled>
+            </div>
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12">
+                <label class="caption-2 text-hint">Kelas</label>
+                <input nbInput fullWidth placeholder="Kelas" [(ngModel)]="hakKelasBpjs" disabled>
+            </div>
+
+            <div class="col-md-8 col-xs-12 col-lg-4 col-sm-12 input-control"
+                [ngClass]="{'bpjs-inactive': statusPesertaBpjs === 'TIDAK AKTIF', 'bpjs-active': statusPesertaBpjs === 'AKTIF'}">
+                <label class="caption-2 text-hint">Status Peserta</label>
+                <input nbInput fullWidth placeholder="Status Peserta" [(ngModel)]="statusPesertaBpjs" disabled>
+            </div>
+        </div>
+    </nb-card-body>
+
+</nb-card>
