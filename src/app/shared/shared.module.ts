@@ -7,7 +7,7 @@ import { HttpService } from '../services/http.service';
 import * as page from './';
 import * as directives from './directives';
 
-const _COMPONENTS = [page.BpjsCheckingComponent];
+const _COMPONENTS = [];
 
 @NgModule({
   imports: [

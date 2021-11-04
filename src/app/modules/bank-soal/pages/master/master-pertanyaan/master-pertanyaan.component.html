@@ -1,1 +1,96 @@
-<p>master-pertanyaan works!</p>
+<div class="container">
+    <div class="container-info row">
+        <div class="col-11" *ngIf="isEditSoal">
+            <input type="text" fullWidth nbInput placeholder="Nama Soal" [(ngModel)]="dataSoal.namaSoal">
+        </div>
+        <div class="col-1 container-action" *ngIf="isEditSoal">
+            <button nbButton outline status="danger" (click)="isEditSoal = !isEditSoal" nbTooltip="Batal"
+                nbTooltipPlacement="top">
+                <nb-icon icon="close-outline"></nb-icon>
+            </button>
+            <button nbButton outline status="info" nbTooltip="Selesai" nbTooltipPlacement="top" (click)="editData()">
+                <nb-icon icon="checkmark-outline"></nb-icon>
+            </button>
+
+        </div>
+
+        <div class="col-11" *ngIf="!isEditSoal">
+            <h1>{{dataSoal.namaSoal}}</h1>
+        </div>
+
+        <div class="col-1 btn-edit container-action" *ngIf="!isEditSoal">
+            <button nbButton ghost nbTooltip="Edit Nama Soal" nbTooltipPlacement="top"
+                (click)="isEditSoal = !isEditSoal">
+                <nb-icon icon="edit-outline"></nb-icon>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="container-pertanyaan">
+    <div class="content-pertanyaan" *ngFor="let pertanyaan of dataPertanyaan">
+        <h6>{{pertanyaan.pertanyaan}}</h6>
+        <nb-radio-group>
+            <nb-radio *ngFor="let jawaban of pertanyaan.pilihanJawaban" [checked]="jawaban.jawabanBenar" [value]="jawaban.id" disabled>
+                {{jawaban.namaJawaban}}</nb-radio>
+        </nb-radio-group>
+    </div>
+
+    <div class="content-add">
+        <div class="row">
+            <div class="col-4">
+                <button nbButton hero status="primary" *ngIf="!showInputPertanyaan" (click)="showInputPertanyaan = !showInputPertanyaan">Tambah Pertanyaan</button>
+            </div>
+
+
+        </div>
+        <nb-card accent="info" style="margin-top: 10px;" *ngIf="showInputPertanyaan">
+            <nb-card-body>
+                <div class="row">
+                    <div class="col-12">
+                        <input type="text" fullWidth nbInput placeholder="Nama Pertanyaan" [(ngModel)]="namaPertanyaan">
+
+                    </div>
+
+                    <div class="col-7" style="margin-top: 5px;" *ngIf="namaPertanyaan">
+                        <div class="row" *ngFor="let jawaban of tempJawaban"  style="margin-top: 5px;">
+                            <div class="col-8">
+                                <input type="text" fullWidth nbInput placeholder="Jawaban" [status]="jawaban.jawabanBenar ? 'success': 'basic'"
+                                    [(ngModel)]="jawaban.namaJawaban">
+                            </div>
+                            <div class="col-3 container-action">
+                                <button nbButton outline status="danger" size="tiny"
+                                    nbTooltip="Batal" nbTooltipPlacement="top">
+                                    <nb-icon icon="close-outline"></nb-icon>
+                                </button>
+                                <button nbButton outline status="info" size="tiny" nbTooltip="Selesai" nbTooltipPlacement="top"
+                                    (click)="tambahJawaban()">
+                                    <nb-icon icon="checkmark-outline"></nb-icon>
+                                </button>
+
+                                <button nbButton outline [status]="jawaban.jawabanBenar ? 'danger':'success'" size="tiny" (click)="jawaban.jawabanBenar = !jawaban.jawabanBenar">
+                                    {{jawaban.jawabanBenar ? "Batal pilih" : "Pilih sebagai jawaban benar"}}
+                                </button>
+                            </div>
+    
+                        </div>
+                        
+
+                    </div>
+                </div>
+            </nb-card-body>
+
+            <nb-card-footer>
+                <div class="row">
+                    <div class="col-2">
+                        <button nbButton fullWidth hero status="success" (click)="savePertanyaanDanJawaban()">Simpan</button>
+                    </div>
+                    <div class="col-1">
+                        <button nbButton fullWidth hero status="danger" (click)="showInputPertanyaan = !showInputPertanyaan">Batal</button>
+                    </div>
+                </div>
+                
+            </nb-card-footer>
+        </nb-card>
+    </div>
+</div>

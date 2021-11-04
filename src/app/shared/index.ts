@@ -1,4 +1,3 @@
-export * from './component/bpjs-checking/bpjs-checking.component';
 
 import * as nb from '@nebular/theme';
 import { Ng2IziToastModule } from 'ng2-izitoast';
@@ -6,12 +5,14 @@ import { Ng2IziToastModule } from 'ng2-izitoast';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { NgSelectModule } from '@ng-select/ng-select';
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
+import { IvyCarouselModule } from 'angular-responsive-carousel';
 export const UIModule = [
   // Ng2IziToastModule,
   NbEvaIconsModule,
   NgSelectModule,
   NgxDatatableModule,
-
+  IvyCarouselModule,
+  
   nb.NbButtonGroupModule,
   nb.NbCalendarKitModule,
   nb.NbContextMenuModule,

@@ -26,6 +26,8 @@ import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
 import { registerLocaleData } from '@angular/common';
 import { AuthModule } from './modules/auth/auth.module';
 import { BankSoalModule } from './modules/bank-soal/bank-soal.module';
+import { WebRekrutmenModule } from './modules/web-rekrutmen/web-rekrutmen.module';
+import { CentralAppsModule } from './modules/central-apps/central-apps.module';
 // import id from '@angular/common/locales/id';
 
 // registerLocaleData(id);
@@ -59,7 +61,9 @@ import { BankSoalModule } from './modules/bank-soal/bank-soal.module';
 
     // MODULES
     AuthModule,
-    BankSoalModule
+    BankSoalModule,
+    WebRekrutmenModule,
+    CentralAppsModule,
   ],
   providers: [
     // {

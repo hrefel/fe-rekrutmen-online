@@ -1,0 +1,1 @@
+export * from './master/master-lowongan/master-lowongan.component';

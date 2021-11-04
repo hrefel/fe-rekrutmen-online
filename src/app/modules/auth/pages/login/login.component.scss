@@ -1,45 +1,21 @@
 $base-color: #ddffff;
 
-
-
 .login-web-container {
   display: flex;
-  justify-content: flex-end;
-
+  justify-content: center;
   margin: 0 auto;
   height: 100vh;
   background-position: center;
   background-repeat: no-repeat;
+  background-color: #dff;
+  align-content: center;
+  align-items: center;
+
   background-color: $base-color;
-
-  .banner {
-    display: flex;
-    flex-direction: column;
-    width: 70vw;
-    justify-content: flex-start;
-    justify-items: center;
-    align-items: center;
-
-    img {
-      &.img-1 {
-        width: 50%;
-        // height: 250px;
-      }
-
-      &.img-2 {
-        width: 40%;
-      }
-
-      // &.img-3 {
-      //   width: 30%;
-      // }
-    }
-  }
-
   .login-form {
     // margin: 10px;
-    height: 100vh;
-    width: 30vw;
+    // height: 100vh;
+    // width: 30vw;
     border-color: #ffffff61;
     background-color: #ffffff61;
 
@@ -57,15 +33,15 @@ $base-color: #ddffff;
         width: 60%;
       }
     }
-
   }
 }
 
 // dekstop
-@media screen and (min-width: 1024px) {}
+@media screen and (min-width: 1024px) {
+}
 
 // tablet
-@media screen and (min-width: 768px) and (max-width:1023px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .login-web-container {
     justify-content: center;
 
@@ -76,7 +52,7 @@ $base-color: #ddffff;
 }
 
 // phone
-@media screen and (max-width:767px) {
+@media screen and (max-width: 767px) {
   .login-web-container {
     justify-content: flex-start;
     // flex-direction:;
@@ -99,13 +75,12 @@ $base-color: #ddffff;
 
         .img-1 {
           display: block;
-          width: 50%; 
+          width: 50%;
         }
         .img-2 {
           width: 30%;
         }
       }
-
     }
   }
 }

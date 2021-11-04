@@ -1,0 +1,35 @@
+.container-info {
+    h1 {
+        margin: 0;
+    }
+
+    &:hover .btn-edit button {
+        display: block;
+    }
+}
+
+.btn-edit button {
+    display: none;
+
+    transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.container-action {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.container-pertanyaan {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0;
+
+    ul li {
+        list-style: lower-alpha;
+    }
+
+    .content-pertanyaan {
+        margin: 10px 0;
+    }
+}

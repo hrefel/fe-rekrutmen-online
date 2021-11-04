@@ -3,20 +3,23 @@ import { RouterModule } from '@angular/router';
 import { ThemeModule } from 'src/app/@theme/theme.module';
 import { UIModule } from 'src/app/shared';
 import { SharedModule } from 'src/app/shared/shared.module';
-import { BankSoalRoutingModule } from './bank-soal-routing.module';
-import { BankSoalComponent } from './bank-soal.component';
-
+import * as page from '../';
 
 @NgModule({
-  declarations: [BankSoalComponent],
+  declarations: [page.MasterLowonganComponent],
   imports: [
-    BankSoalRoutingModule,
+    RouterModule.forChild([
+      {
+        path: '',
+        component: page.MasterLowonganComponent,
+      },
+    ]),
     ...UIModule,
     ThemeModule,
     SharedModule,
   ],
-  providers:[],
 
-  bootstrap: [BankSoalComponent],
+  bootstrap: [page.MasterLowonganComponent],
 })
-export class BankSoalModule {}
+export class MasterLowonganModule {}
+

@@ -25,7 +25,7 @@ export class ErrorInterceptor implements HttpInterceptor {
   ): Observable<HttpEvent<any>> {
     return next.handle(request).pipe(
       catchError((err) => {
-        let message: any = 'Gagal';
+        let message: any = 'Koneksi Server Terputus';
         let title: any = 'Error';
 
         if (err.status === 401) {

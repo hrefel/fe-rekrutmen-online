@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BpjsCheckingComponent } from './bpjs-checking.component';
+import { WebRekrutmenComponent } from './web-rekrutmen.component';
 
-describe('BpjsCheckingComponent', () => {
-  let component: BpjsCheckingComponent;
-  let fixture: ComponentFixture<BpjsCheckingComponent>;
+describe('WebRekrutmenComponent', () => {
+  let component: WebRekrutmenComponent;
+  let fixture: ComponentFixture<WebRekrutmenComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BpjsCheckingComponent ]
+      declarations: [ WebRekrutmenComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BpjsCheckingComponent);
+    fixture = TestBed.createComponent(WebRekrutmenComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -17,10 +17,8 @@ const _PORTPHP = '2222',
 export const BASE_URL = {
   _BASED: `${_BASE}${_PORT}/api/`,
   _BASE_ELEARNING:`${_BASE}${_PORT}/api/elearning/`,
-  _BASE_TRANSAKSI: `${_BASE}${_PORTTRANSAKSI}/`,
-  _PENDAFTARAN_SERVICE: `${_BASE}${_PORTTRANSAKSI}/pendaftaran-online-service/`,
-  // http://192.168.12.3:5665
-  _BPJS_SERVICE: `${_BASE}${_PORTTRANSAKSI}/bpjs-service/`,
-  _BASE_AKTIVASI: `${_BASE}${_PORTAKTIVASI}/kehadiranpasien-service/`,
-  _BASE_AUTHSERVICE: `${_BASE}${_PORTLOCAL}/auth-registrasi-service/`,
+  _BASE_MASTER: `${_BASE}${_PORT}/api/master/`,
+  _BASE_TRANSAKSI: `${_BASE}${_PORTTRANSAKSI}/transaksi`,
+  _BASE_AUTHSERVICE: `${_BASE}${_PORTLOCAL}/api/auth/`,
+  _BASE_WEBAPP: `${_BASE}${_PORTLOCAL}/api/web/`,
 };

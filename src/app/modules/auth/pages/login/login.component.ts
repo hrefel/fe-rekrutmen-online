@@ -13,7 +13,7 @@ import { MediaBreakpointService } from 'src/app/services/media-breakpoint.servic
 export class LoginComponent implements OnInit {
   showPassword = false;
   kataSandi: any;
-  namaPengguna: any;
+  email: any;
 
   media: any;
 
@@ -40,7 +40,7 @@ export class LoginComponent implements OnInit {
   }
 
   signin() {
-    if (!this.namaPengguna) {
+    if (!this.email) {
       this.toastr.warning('Harap isi Nama Pengguna terlebih dahulu!');
       return;
     }
@@ -51,16 +51,17 @@ export class LoginComponent implements OnInit {
     }
 
     let dataLogin = {
-      username: this.namaPengguna,
+      email: this.email,
       password: this.kataSandi,
     };
 
+    
     this.http
-      .save(BASE_URL._BASED + 'auth-registrasi-service/sign-in', dataLogin)
+      .save(BASE_URL._BASE_AUTHSERVICE + 'signin', dataLogin)
       .subscribe(
         (res: any) => {
-          this.cookieSvc.set('token', res.result.token);
-          this.cookieSvc.set('dataLogin', JSON.stringify(res.result));
+          this.cookieSvc.set('token', res.token);
+          this.cookieSvc.set('dataLogin', JSON.stringify(res.user));
 
           window.location.replace('/beranda');
         },

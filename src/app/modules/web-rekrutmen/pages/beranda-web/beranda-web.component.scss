@@ -1,0 +1,9 @@
+/* change transition duration to control the speed of fade effect */
+.carousel-item {
+  transition: transform 1s ease-in-out;
+}
+
+.carousel-fade .active.carousel-item-start,
+.carousel-fade .active.carousel-item-end {
+  transition: all 0s 1s;
+}

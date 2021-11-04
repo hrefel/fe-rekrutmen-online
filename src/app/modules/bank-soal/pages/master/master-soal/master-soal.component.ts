@@ -10,6 +10,7 @@ import { HttpService } from 'src/app/services/http.service';
 })
 export class MasterSoalComponent implements OnInit {
   rows = [];
+  searchModel: any = {};
   loadingIndicator = true;
   reorderable = true;
   columns = [
@@ -17,7 +18,8 @@ export class MasterSoalComponent implements OnInit {
     { name: 'Gender' },
     { name: 'Company', sortable: false },
   ];
-  isPressed = false;
+
+  showInput = false;
 
   // model input
   namaSoal: string;
@@ -32,35 +34,44 @@ export class MasterSoalComponent implements OnInit {
   getData() {
     this.loadingIndicator = true;
     this.http
-    .get(`${BASE_URL._BASE_ELEARNING}master/soal/all`)
-    .subscribe((res: any) => {
-      this.rows = res;
-      this.loadingIndicator = false;
-    });
+      .get(
+        `${BASE_URL._BASE_ELEARNING}master/soal?namaSoal=${this.searchModel.namaSoal ? this.searchModel.namaSoal : ""}&waktuPengerjaan=${this.searchModel.waktuPengerjaan ? this.searchModel.waktuPengerjaan : ""}&createdBy=${this.searchModel.createdBy ? this.searchModel.createdBy : ""}`
+      )
+      .subscribe((res: any) => {
+        this.rows = res;
+        this.loadingIndicator = false;
+      });
   }
 
   tambahData() {
     let dataSave = {
       namaSoal: this.namaSoal,
       waktuPengerjaan: this.waktuPengerjaan,
-      createdBy: "Refel"
-    }
-
-    console.log(dataSave);
-    this.http.save(`${BASE_URL._BASE_ELEARNING}master/soal`, dataSave).subscribe((res: any) => {
-      this.getData();
-    })
+      createdBy: 'Refel',
+    };
+    this.http
+      .save(`${BASE_URL._BASE_ELEARNING}master/soal`, dataSave)
+      .subscribe((res: any) => {
+        this.getData();
+        this.resetForm();
+      });
   }
 
   hapusData(data) {
-    
-    this.http.save(`${BASE_URL._BASE_ELEARNING}master/soal/delete`,{id: data._id}).subscribe((res: any) => {
-      this.getData();
-    })
+    this.http
+      .save(`${BASE_URL._BASE_ELEARNING}master/soal/delete`, { id: data._id })
+      .subscribe((res: any) => {
+        this.getData();
+        this.resetForm();
+      });
   }
 
   inputPertanyaan(data) {
     this.route.navigate(['bank-soal/master-pertanyaan/' + data._id]);
   }
 
+  resetForm() {
+    this.namaSoal = null;
+    this.waktuPengerjaan = 0;
+  }
 }

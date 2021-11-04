@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-4">
+        <input type="text" nbInput fullWidth placeholder="Kata Kunci (contoh: DOKTER)" [(ngModel)]="judulLowongan">
+    </div>
+    <div class="col-3">
+        <nb-select placeholder="Kategori" fullWidth [(selected)]="selectedKategori">
+            <nb-option *ngFor="let data of listKategori" [value]="data._id">{{data.namaKategori}}</nb-option>
+        </nb-select>
+    </div>
+    <div class="col-3">
+        <nb-select placeholder="Jenjang Pendidikan" fullWidth [(selected)]="selectedJenjangPendidikan">
+            <nb-option *ngFor="let data of listJenjangPendidikan" [value]="data._id">{{data.namaPendidikan}}</nb-option>
+
+        </nb-select>
+    </div>
+
+    <div class="col-2">
+        <button nbButton hero fullWidth status="success" (click)="getDataLowongan()">Cari</button>
+
+    </div>
+</div>
+
+
+
+<hr style="border-top: 1px dotted;">
+
+<nb-card accent="info" *ngFor="let lowongan of listLowongan">
+   
+    <nb-card-body>
+        <div class="data-lowongan">
+            <h6>{{lowongan.judulLowongan}}</h6>
+
+            <button nbButton ghost status="success">Lamar</button>
+        </div>
+
+        <div class="misc">
+            <span>{{lowongan.jenjangPendidikan}}</span>
+            <span>{{lowongan.kategori}}</span>
+        </div>
+
+        <hr>
+        <span class="caption-2">berlaku sampai dengan <i>{{lowongan.lowonganKadaluarsa}}</i></span>
+
+    </nb-card-body>
+</nb-card>

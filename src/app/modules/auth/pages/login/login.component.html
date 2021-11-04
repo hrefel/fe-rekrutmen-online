@@ -1,8 +1,5 @@
 <div class="login-web-container">
-    <div class="banner">
-       
-    </div>
-
+    
     <nb-card class="login-form">
         <nb-card-body>
             <div class="header-login">
@@ -14,7 +11,7 @@
                 <div class="col-xs-12 col-md-6 col-lg-12 col-sm-12" style="margin-top: 10px;">
                     <nb-form-field>
                         <nb-icon nbPrefix icon="at-outline" pack="eva"></nb-icon>
-                        <input nbInput fullWidth placeholder="Nama Pengguna/Username" [(ngModel)]="namaPengguna"
+                        <input nbInput fullWidth placeholder="Email" [(ngModel)]="email"
                             (keyup)="$event.keyCode == 13 ? signin() : null">
                     </nb-form-field>
 

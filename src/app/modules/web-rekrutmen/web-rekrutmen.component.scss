@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap');
+
+.web-navbar {
+    background-color: #e8ffe6;
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.05) 0px 4px 6px -2px;
+    
+    .logo {
+        font-family: 'Exo', sans-serif;
+        font-size: 20px;
+
+        span {
+            background-color: #ffffff;
+            font-weight: bolder;
+            padding: 5px;
+            border-radius: 4px;
+            user-select: none;
+        }
+    }
+}
+
+.web-content-container {
+    padding: 10px;
+    height: 100vh;
+    background-color: rgba(197, 197, 197, 0.2);
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.menu {
+    a {
+        margin: 10px;
+        padding: 10px;
+        cursor: pointer;
+        color: #1d1d1d;
+        text-decoration: none;
+        transition: all .5s cubic-bezier(0.075, 0.82, 0.165, 1);
+        
+        &:hover {
+            border-radius: 10px;
+            background-color: #b8f7c3;
+            font-weight: bolder;
+        }
+        &:active {
+            color: #1d1d1d;
+        }
+    }
+}
+
+.container-grid {
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 0.5fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "misc content misc-1";
+  }
+  
+  .content { grid-area: content; }
+  
+  .misc { grid-area: misc; }
+  
+  .misc-1 { grid-area: misc-1; }
+  

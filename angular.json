@@ -40,7 +40,9 @@
               "src/app/@theme/styles/styles.scss"
             ],
             "scripts": [
-              "node_modules/izitoast/dist/js/iziToast.min.js"
+              "node_modules/izitoast/dist/js/iziToast.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
             ]
           },
           "configurations": {
